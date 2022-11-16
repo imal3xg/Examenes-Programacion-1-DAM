@@ -151,10 +151,7 @@ public class Examen16112022 {
         // Línea mensaje
         System.out.print("* ");
         switch ((int) longitud % 4) {
-
             case 2:
-                System.out.print(" ");
-                break;
             case 3:
                 System.out.print(" ");
                 break;
@@ -162,13 +159,11 @@ public class Examen16112022 {
         System.out.print(text);
         switch ((int) longitud % 4) {
             case 0:
+            case 3:
                 System.out.print(" ");
                 break;
             case 2:
                 System.out.print("  ");
-                break;
-            case 3:
-                System.out.print(" ");
                 break;
         }
         System.out.println(" *");
