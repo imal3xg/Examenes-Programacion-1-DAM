@@ -9,7 +9,6 @@
 
 import java.util.Scanner;
 
-import javax.swing.text.html.StyleSheet;
 
 public class Examen21112022 {
     public static void main(String[] args) {
@@ -20,7 +19,7 @@ public class Examen21112022 {
         long numAux;
         long rotated;
         long rotatedAux;
-        int res;
+        long res;
         int max;
 
         // Var init;
@@ -81,7 +80,7 @@ public class Examen21112022 {
         for (int i = 0; i < max; i++) {
             numAux = rotated;
             for (int j = 0; j < lon; j++) {
-                res = (int) numAux % 10;
+                res =  numAux % 10;
                 if (res > i)
                     System.out.print("| * ");
                 else
