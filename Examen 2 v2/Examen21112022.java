@@ -9,7 +9,6 @@
 
 import java.util.Scanner;
 
-
 public class Examen21112022 {
     public static void main(String[] args) {
         // Var declarations
@@ -21,12 +20,14 @@ public class Examen21112022 {
         long rotatedAux;
         long res;
         int max;
+        String line;
 
         // Var init;
         lon = 0;
         numAux = 0;
         rotated = 0;
         max = 0;
+        line = "";
 
         // Scanner class
         Scanner sc = new Scanner(System.in);
@@ -55,10 +56,13 @@ public class Examen21112022 {
         } while (aux > 0);
 
         // Output data
-        // Primera línea
+        // Genera la línea
         for (int i = 0; i < lon; i++)
-            System.out.print("----");
-        System.out.println("-");
+            line += "----";
+        line += "-";
+
+        // Imprime primera línea
+        System.out.println(line);
 
         // Segunda línea cabecera de números
         rotatedAux = rotated;
@@ -72,15 +76,13 @@ public class Examen21112022 {
         System.out.println("|");
 
         // Tercera línea
-        for (int i = 0; i < lon; i++)
-            System.out.print("----");
-        System.out.println("-");
+        System.out.println(line);
 
         // Gráfica
         for (int i = 0; i < max; i++) {
             numAux = rotated;
             for (int j = 0; j < lon; j++) {
-                res =  numAux % 10;
+                res = numAux % 10;
                 if (res > i)
                     System.out.print("| * ");
                 else
@@ -90,10 +92,9 @@ public class Examen21112022 {
             System.out.println("|");
         }
 
-        // esta línea hay que borrarla
-        System.out.println("longitud: " + lon);
-        System.out.println("rotated: " + rotated);
-        System.out.println("máximo: " + max);
+        // Última línea
+        System.out.println(line);
+
         // Close Scanner
         sc.close();
     }
