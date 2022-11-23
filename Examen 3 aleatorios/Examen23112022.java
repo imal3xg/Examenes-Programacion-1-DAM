@@ -50,13 +50,13 @@ public class Examen23112022 {
             } while (maxInterval <= minInterval);
 
             // Mostramos el intervalo
-            System.out.println("-A-L-E-A-T-O-R-I-U-M-");
+            System.out.println("\n-A-L-E-A-T-O-R-I-U-M-");
             System.out.printf("Estoy pensando en un número entre %d y %d\n", minInterval, maxInterval);
 
             // Calculamos el número a buscar y el número de intentos y lo mostramos
             numFinal = (int) (Math.random() * ((maxInterval - minInterval) + 1)) + minInterval;
             intentos = (int) (Math.log(maxInterval - minInterval + 1) / Math.log(2));
-            System.out.println("Tienes " + intentos + " intentos");
+            System.out.println("Tienes " + intentos + " intentos\n");
 
             // Juego del jugador
             do {
@@ -91,6 +91,7 @@ public class Examen23112022 {
             } while (play != 1 && play != 2);
         } while (play != 2);
 
+        System.out.println("\nGracias por jugar a -A-L-E-A-T-O-R-I-U-M-\n");
         // Close scanner
         sc.close();
     }
