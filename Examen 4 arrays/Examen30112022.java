@@ -30,7 +30,7 @@ public class Examen30112022 {
 
         // Process
         do {
-            imprime(arr, posX, posY, mode);
+            imprime(arr, posX, posY, mode); // imprimimos la matriz y el menú
             opt = sc.next();
             switch (opt) {
                 case "a": // mueve izquierda
@@ -78,37 +78,64 @@ public class Examen30112022 {
         sc.close();
     }
 
+    /**
+     * limpiaTablero: Limpia todo el contenido del array y lo rellena con el borde
+     * de asteriscos
+     *
+     * @param arr Array de entrada
+     * @return Array de salida
+     */
     public static Character[][] limpiarTablero(Character[][] arr) {
         int WIDTH = arr.length;
         int HEIGHT = arr[0].length;
-        for (int i = 0; i < WIDTH; i++) {
-            for (int j = 0; j < HEIGHT; j++) {
+        for (int i = 0; i < WIDTH; i++)
+            for (int j = 0; j < HEIGHT; j++)
                 if (i == 0 || i == WIDTH - 1 || j == 0 || j == HEIGHT - 1)
                     arr[i][j] = '*';
                 else
                     arr[i][j] = ' ';
-            }
-        }
         return arr;
     }
 
+    /**
+     * rotarArray: Rota el array en sentido antihorario
+     *
+     * @param arr Array de entrada
+     * @return Array rotado hacia la izquierda
+     */
     public static Character[][] rotarArray(Character[][] arr) {
         Character[][] aux;
         aux = new Character[arr.length][arr[0].length];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[0].length; j++) {
+        for (int i = 0; i < arr.length; i++)
+            for (int j = 0; j < arr[0].length; j++)
                 aux[i][j] = arr[j][arr[0].length - i - 1];
-            }
-        }
         return aux;
     }
 
+    /**
+     * compruebaPintar: Comprueba si tiene que pintar un espacio, una X o el
+     * carácter inicial
+     *
+     * @param posX posición X del cursor
+     * @param posY posición Y del cursor
+     * @param mode modo del cursor (pintar, borrar, mover)
+     * @param c    carácter
+     * @return Carácter que se debe poner
+     */
     public static Character compruebaPintar(int posX, int posY, String mode, Character c) {
         if (mode.equals("pintar"))
-            return 'X';
+            return 'x';
+        if (mode.equals("borrar"))
+            return ' ';
         return c;
     }
 
+    /**
+     * espejo: Hace un volteado horizontal de la matriz
+     *
+     * @param arr Array de entrada
+     * @return Array rotado
+     */
     public static Character[][] espejo(Character[][] arr) {
         Character[][] aux;
         aux = new Character[arr.length][arr[0].length];
@@ -116,10 +143,17 @@ public class Examen30112022 {
         for (int i = 0; i < arr.length; i++)
             for (int j = 0; j < arr[0].length; j++)
                 aux[i][j] = arr[i][arr.length - 1 - j];
-
         return aux;
     }
 
+    /**
+     * imprime: imprime el tablero array con el menú incluido
+     *
+     * @param arr  Array de entrada
+     * @param posX Posición X del cursor
+     * @param posY Posición Y del cursor
+     * @param mode Modo del cursor
+     */
     public static void imprime(Character[][] arr, int posX, int posY, String mode) {
         int WIDTH = arr.length;
         int HEIGHT = arr[0].length;
@@ -137,7 +171,6 @@ public class Examen30112022 {
                             break;
                         case "borrar":
                             System.out.print("B" + " ");
-                            arr[posY][posX] = ' ';
                             break;
                     }
             }
