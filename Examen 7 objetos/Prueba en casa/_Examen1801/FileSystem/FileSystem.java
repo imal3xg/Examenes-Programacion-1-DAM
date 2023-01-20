@@ -56,9 +56,5 @@ public class FileSystem {
 
 	public void tree() {
 		System.out.print(this.currentFolder);
-		int size = this.currentFolder.getFileCount();
-		for (int i = 0; i < size; i++){
-			System.out.println(this.currentFolder.folderName);
-		}
 	}
 }

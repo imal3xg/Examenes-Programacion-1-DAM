@@ -124,12 +124,21 @@ public class Folder extends File implements FolderEntry {
 		return null;
 	}
 
-	@Override
-	public String toString() {
+	private String tabs() {
 		String spaces = "";
 		for (int i = 0; i <= this.getLevel(); i++)
-			spaces += " ";
-		return spaces + "|_[" + this.getFileName() + "]";
+			spaces += "  ";
+		return spaces;
+	}
+
+	@Override
+	public String toString() {
+		String tree = tabs() + "|_" + this.getFileName() + "\n";
+		for (int i = 0; i < 100; i++) {
+			if (list[i] != null)
+				tree += list[i] + "\n";
+		}
+		return tree;
 	}
 
 	private int findSpace() {
