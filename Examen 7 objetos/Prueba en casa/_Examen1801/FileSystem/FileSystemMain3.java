@@ -9,7 +9,7 @@ public class FileSystemMain3 {
 		int opcion = 0;
 		String nombre;
 		do {
-			System.out.println("\n1. Listar directorio acutal");
+			System.out.println("\n1. Listar directorio actual");
 			System.out.println("2. Crear un directorio");
 			System.out.println("3. Borrar un directorio");
 			System.out.println("4. Añadir un archivo");

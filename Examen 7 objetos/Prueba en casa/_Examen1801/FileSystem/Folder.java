@@ -31,7 +31,7 @@ public class Folder extends File implements FolderEntry {
 	private Folder parent;
 
 	public Folder(Folder parent, String folderName, int level) {
-		super(folderName, level);
+		super(folderName, level - 1);
 		this.parent = parent;
 	}
 
@@ -94,6 +94,7 @@ public class Folder extends File implements FolderEntry {
 			if (list[i].getFileName().equals(fileName)) {
 				list[i] = null;
 			}
+			i++;
 		}
 		return null;
 	}
@@ -124,19 +125,12 @@ public class Folder extends File implements FolderEntry {
 		return null;
 	}
 
-	private String tabs() {
-		String spaces = "";
-		for (int i = 0; i <= this.getLevel(); i++)
-			spaces += "  ";
-		return spaces;
-	}
-
 	@Override
 	public String toString() {
 		String tree = tabs() + "|_" + this.getFileName() + "\n";
 		for (int i = 0; i < 100; i++) {
 			if (list[i] != null)
-				tree += list[i] + "\n";
+				tree += list[i] + "";
 		}
 		return tree;
 	}

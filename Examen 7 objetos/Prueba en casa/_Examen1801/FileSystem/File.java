@@ -34,13 +34,12 @@ public class File implements FileEntry {
 
 	public File(String fileName) {
 		this.fileName = fileName;
-		this.level = 0;
 		this.createdAt = new Date();
 	}
 
 	public File(String fileName, int level) {
 		this(fileName);
-		this.level = level;
+		this.level = level + 1;
 	}
 
 	public String getFileName() {
@@ -65,11 +64,16 @@ public class File implements FileEntry {
 		return this.fileName;
 	}
 
+	public String tabs() {
+		String spaces = "";
+		for (int i = 0; i <= this.getLevel(); i++)
+			spaces += "  ";
+		return spaces;
+	}
+
 	@Override
 	public String toString() {
-		String spaces = "";
-		for (int i = 0; i < level; i++)
-			spaces += " ";
-		return spaces + "|_" + this.getFileName() + " " + this.getCreatedAt();
+		String spaces = tabs();
+		return spaces + "|_" + this.getFileName() + " " + this.getCreatedAt() + "\n";
 	}
 }
